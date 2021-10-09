@@ -12,7 +12,7 @@ class MainNavigationController: UINavigationController {
   init(with rootViewController: UIViewController) {
     super.init(nibName: nil, bundle: nil)
     
-    self.setViewControllers([rootViewController], animated: true)
+    setViewControllers([rootViewController], animated: true)
   }
   
   /**
@@ -24,5 +24,13 @@ class MainNavigationController: UINavigationController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setUpNavigationBar()
+  }
+  
+  private func setUpNavigationBar() {
+    
+    navigationBar.barTintColor = UIColor.themeMainColor
+    navigationBar.tintColor = UIColor.white
+    navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
   }
 }
