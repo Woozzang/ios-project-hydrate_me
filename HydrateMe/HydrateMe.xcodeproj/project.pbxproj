@@ -16,6 +16,13 @@
 		DD4161052711DBF9007A427F /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4161042711DBF9007A427F /* ProfileViewController.swift */; };
 		DD4161072711DC4E007A427F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4161062711DC4E007A427F /* MainNavigationController.swift */; };
 		DD41610A2711DD76007A427F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD4161092711DD76007A427F /* SnapKit */; };
+		DD4161102711E94E007A427F /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41610F2711E94E007A427F /* UIColor+ThemeColor.swift */; };
+		DD4161142711F10D007A427F /* UILabel+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4161132711F10D007A427F /* UILabel+Builder.swift */; };
+		DD4161192711FB4D007A427F /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4161182711FB4D007A427F /* WaterManager.swift */; };
+		DD41611C2711FED8007A427F /* UIDate+IsToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41611B2711FED8007A427F /* UIDate+IsToday.swift */; };
+		DD58144A2712D4D10033026C /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DD5814492712D4D10033026C /* TextFieldEffects */; };
+		DD58144C2712DAB20033026C /* IsaoTextfield+Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */; };
+		DD581450271328910033026C /* String+IsNotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58144F271328910033026C /* String+IsNotEmpty.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,12 @@
 		DD4161022711DBE4007A427F /* DrinkWaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterViewController.swift; sourceTree = "<group>"; };
 		DD4161042711DBF9007A427F /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DD4161062711DC4E007A427F /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		DD41610F2711E94E007A427F /* UIColor+ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ThemeColor.swift"; sourceTree = "<group>"; };
+		DD4161132711F10D007A427F /* UILabel+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Builder.swift"; sourceTree = "<group>"; };
+		DD4161182711FB4D007A427F /* WaterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterManager.swift; sourceTree = "<group>"; };
+		DD41611B2711FED8007A427F /* UIDate+IsToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDate+IsToday.swift"; sourceTree = "<group>"; };
+		DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IsaoTextfield+Maker.swift"; sourceTree = "<group>"; };
+		DD58144F271328910033026C /* String+IsNotEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsNotEmpty.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD41610A2711DD76007A427F /* SnapKit in Frameworks */,
+				DD58144A2712D4D10033026C /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +76,7 @@
 		DD4160ED2711DBBD007A427F /* HydrateMe */ = {
 			isa = PBXGroup;
 			children = (
+				DD41610D2711E935007A427F /* Global */,
 				DD41610B2711DF92007A427F /* Support */,
 				DD4161022711DBE4007A427F /* DrinkWaterViewController.swift */,
 				DD4161042711DBF9007A427F /* ProfileViewController.swift */,
@@ -73,14 +88,51 @@
 		DD41610B2711DF92007A427F /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				DD41610C2711E557007A427F /* Resources */,
 				DD4160EE2711DBBD007A427F /* AppDelegate.swift */,
 				DD4160F02711DBBD007A427F /* SceneDelegate.swift */,
-				DD4160F42711DBBD007A427F /* Main.storyboard */,
-				DD4160F92711DBBF007A427F /* LaunchScreen.storyboard */,
 				DD4160FC2711DBBF007A427F /* Info.plist */,
 				DD4160F72711DBBF007A427F /* Assets.xcassets */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		DD41610C2711E557007A427F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DD4160F92711DBBF007A427F /* LaunchScreen.storyboard */,
+				DD4160F42711DBBD007A427F /* Main.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD41610D2711E935007A427F /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				DD41611A2711FB55007A427F /* Model */,
+				DD41610E2711E939007A427F /* Extension */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		DD41610E2711E939007A427F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DD41610F2711E94E007A427F /* UIColor+ThemeColor.swift */,
+				DD4161132711F10D007A427F /* UILabel+Builder.swift */,
+				DD41611B2711FED8007A427F /* UIDate+IsToday.swift */,
+				DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */,
+				DD58144F271328910033026C /* String+IsNotEmpty.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DD41611A2711FB55007A427F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD4161182711FB4D007A427F /* WaterManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -101,6 +153,7 @@
 			name = HydrateMe;
 			packageProductDependencies = (
 				DD4161092711DD76007A427F /* SnapKit */,
+				DD5814492712D4D10033026C /* TextFieldEffects */,
 			);
 			productName = HydrateMe;
 			productReference = DD4160EB2711DBBD007A427F /* HydrateMe.app */;
@@ -131,6 +184,7 @@
 			mainGroup = DD4160E22711DBBD007A427F;
 			packageReferences = (
 				DD4161082711DD76007A427F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DD5814482712D4D10033026C /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = DD4160EC2711DBBD007A427F /* Products */;
 			projectDirPath = "";
@@ -159,9 +213,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD4161142711F10D007A427F /* UILabel+Builder.swift in Sources */,
+				DD581450271328910033026C /* String+IsNotEmpty.swift in Sources */,
+				DD41611C2711FED8007A427F /* UIDate+IsToday.swift in Sources */,
+				DD58144C2712DAB20033026C /* IsaoTextfield+Maker.swift in Sources */,
 				DD4161072711DC4E007A427F /* MainNavigationController.swift in Sources */,
 				DD4161032711DBE4007A427F /* DrinkWaterViewController.swift in Sources */,
 				DD4160EF2711DBBD007A427F /* AppDelegate.swift in Sources */,
+				DD4161192711FB4D007A427F /* WaterManager.swift in Sources */,
+				DD4161102711E94E007A427F /* UIColor+ThemeColor.swift in Sources */,
 				DD4161052711DBF9007A427F /* ProfileViewController.swift in Sources */,
 				DD4160F12711DBBD007A427F /* SceneDelegate.swift in Sources */,
 			);
@@ -377,6 +437,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		DD5814482712D4D10033026C /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -384,6 +452,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD4161082711DD76007A427F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DD5814492712D4D10033026C /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD5814482712D4D10033026C /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

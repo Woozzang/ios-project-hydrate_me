@@ -23,6 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     window?.rootViewController = MainNavigationController(with: DrinkWaterViewController())
     
     window?.makeKeyAndVisible()
+    
+    WaterManager.shared.fetchUserInfo()
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
@@ -40,6 +42,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func sceneWillResignActive(_ scene: UIScene) {
     // Called when the scene will move from an active state to an inactive state.
     // This may occur due to temporary interruptions (ex. an incoming phone call).
+    WaterManager.shared.saveUserInfo()
   }
 
   func sceneWillEnterForeground(_ scene: UIScene) {
