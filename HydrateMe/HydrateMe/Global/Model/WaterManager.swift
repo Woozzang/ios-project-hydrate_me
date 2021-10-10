@@ -44,7 +44,7 @@ class WaterManager {
   /**
     권장 섭취량
    */
-  var acheivementRate: Float {
+  var achievementRate: Float {
     
     return ( Float(userIntake) / Float(recommendedIntake) ) * 100
   }
@@ -61,6 +61,9 @@ class WaterManager {
   
   private init() { }
 
+  deinit {
+    
+  }
   // MARK: - Custom Method
   
   /**

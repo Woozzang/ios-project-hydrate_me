@@ -35,8 +35,9 @@ final class DrinkWaterViewController: UIViewController {
     return imageView
   }()
   
-  private let waterInputTextFiled: UITextField = {
-    let textField = UITextField()
+  private let waterInputTextFiled: ActionDisabledTextField = {
+    
+    let textField = ActionDisabledTextField()
     
     textField.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
     textField.textColor = .white
@@ -60,7 +61,7 @@ final class DrinkWaterViewController: UIViewController {
     
 //    button.tintColor = .black
     button.setTitle("물마시기💧", for: .normal)
-    button.setTitle("목표 달성 완료 🥳", for: .disabled)
+    button.setTitle("🥳 목표 달성 완료 🥳", for: .disabled)
     button.setTitleColor(.black, for: .normal)
     
     button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
@@ -115,7 +116,7 @@ final class DrinkWaterViewController: UIViewController {
     
     updateWaterCountLabel()
 
-    updateAcheivementRateLabel()
+    updateAchievementRateLabel()
     
     updateGuideLabel()
   }
@@ -390,17 +391,17 @@ extension DrinkWaterViewController {
   @objc func userIntakeDidChange() {
     
     updateWaterCountLabel()
-    updateAcheivementRateLabel()
+    updateAchievementRateLabel()
     updateMainImage()
-    updateToAcheiment()
+    updateToAchievement()
   }
   
   @objc func recommendedIntakeDidChange() {
     
-    updateAcheivementRateLabel()
+    updateAchievementRateLabel()
     updateMainImage()
     updateGuideLabel()
-    updateToAcheiment()
+    updateToAchievement()
   }
   
   @objc func nickNameDidChange() {
@@ -420,7 +421,7 @@ extension DrinkWaterViewController {
   
   private func updateMainImage() {
     
-    let rate = WaterManager.shared.acheivementRate
+    let rate = WaterManager.shared.achievementRate
     
     guard !rate.isNaN, !rate.isInfinite else { return }
     
@@ -462,29 +463,29 @@ extension DrinkWaterViewController {
     
     let recommendedIntake = WaterManager.shared.recommendedIntake
     
-    /**
-      리터 변환
-     */
-    
-    let liter = Int(Float(Int(Float(recommendedIntake) / Float(100))) / Float(10))
+    let liter = Float(recommendedIntake) / Float(1000)
     
     guideLabel.text = "\(nickName) 님의 하루 물 권장 섭취량은 \(liter)L 입니다."
   }
   
-
+  /**
+    목표 달성 시 분기 처리하는 메서드
+   */
   
-  private func updateToAcheiment() {
+  private func updateToAchievement() {
     
-    let acheivementRate = WaterManager.shared.acheivementRate
+    let achievementRate = WaterManager.shared.achievementRate
     
-    if acheivementRate >= 100 {
+    if achievementRate >= 100 {
       
       drinkWaterButton.isEnabled = false
+      drinkWaterButton.backgroundColor = #colorLiteral(red: 0.8039215686, green: 0.8980392157, blue: 0.7764705882, alpha: 1)
       waterInputTextFiled.isEnabled = false
       
     } else {
       
       drinkWaterButton.isEnabled = true
+      drinkWaterButton.backgroundColor = .white
       waterInputTextFiled.isEnabled = true
     }
   }
@@ -497,9 +498,9 @@ extension DrinkWaterViewController {
   }
   
   
-  private func updateAcheivementRateLabel() {
+  private func updateAchievementRateLabel() {
     
-    let newRate = WaterManager.shared.acheivementRate
+    let newRate = WaterManager.shared.achievementRate
     
     var resultText: String
     

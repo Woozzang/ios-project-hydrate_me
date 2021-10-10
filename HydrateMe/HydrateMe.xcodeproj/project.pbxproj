@@ -23,6 +23,7 @@
 		DD58144A2712D4D10033026C /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DD5814492712D4D10033026C /* TextFieldEffects */; };
 		DD58144C2712DAB20033026C /* IsaoTextfield+Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */; };
 		DD581450271328910033026C /* String+IsNotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58144F271328910033026C /* String+IsNotEmpty.swift */; };
+		DD582214271375EC00560801 /* ActionDisabledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD582213271375EC00560801 /* ActionDisabledTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DD41611B2711FED8007A427F /* UIDate+IsToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDate+IsToday.swift"; sourceTree = "<group>"; };
 		DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IsaoTextfield+Maker.swift"; sourceTree = "<group>"; };
 		DD58144F271328910033026C /* String+IsNotEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsNotEmpty.swift"; sourceTree = "<group>"; };
+		DD582213271375EC00560801 /* ActionDisabledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDisabledTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		DD41610D2711E935007A427F /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				DD582215271379BA00560801 /* Custom */,
 				DD41611A2711FB55007A427F /* Model */,
 				DD41610E2711E939007A427F /* Extension */,
 			);
@@ -133,6 +136,14 @@
 				DD4161182711FB4D007A427F /* WaterManager.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DD582215271379BA00560801 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				DD582213271375EC00560801 /* ActionDisabledTextField.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 				DD4161102711E94E007A427F /* UIColor+ThemeColor.swift in Sources */,
 				DD4161052711DBF9007A427F /* ProfileViewController.swift in Sources */,
 				DD4160F12711DBBD007A427F /* SceneDelegate.swift in Sources */,
+				DD582214271375EC00560801 /* ActionDisabledTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

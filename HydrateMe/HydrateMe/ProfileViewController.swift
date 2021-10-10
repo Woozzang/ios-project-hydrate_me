@@ -188,7 +188,7 @@ final class ProfileViewController: UIViewController {
    */
   func updateProfileImage() {
     
-    let rate = WaterManager.shared.acheivementRate
+    let rate = WaterManager.shared.achievementRate
     
     guard !rate.isNaN, !rate.isInfinite else { return }
     
