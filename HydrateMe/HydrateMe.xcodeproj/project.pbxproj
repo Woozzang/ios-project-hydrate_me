@@ -19,11 +19,11 @@
 		DD4161102711E94E007A427F /* UIColor+ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41610F2711E94E007A427F /* UIColor+ThemeColor.swift */; };
 		DD4161142711F10D007A427F /* UILabel+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4161132711F10D007A427F /* UILabel+Builder.swift */; };
 		DD4161192711FB4D007A427F /* WaterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4161182711FB4D007A427F /* WaterManager.swift */; };
-		DD41611C2711FED8007A427F /* UIDate+IsToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41611B2711FED8007A427F /* UIDate+IsToday.swift */; };
+		DD41611C2711FED8007A427F /* Date+IsToday.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD41611B2711FED8007A427F /* Date+IsToday.swift */; };
 		DD58144A2712D4D10033026C /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DD5814492712D4D10033026C /* TextFieldEffects */; };
-		DD58144C2712DAB20033026C /* IsaoTextfield+Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */; };
+		DD58144C2712DAB20033026C /* IsaoTextfield+CustomInit,DisablePaste.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58144B2712DAB20033026C /* IsaoTextfield+CustomInit,DisablePaste.swift */; };
 		DD581450271328910033026C /* String+IsNotEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD58144F271328910033026C /* String+IsNotEmpty.swift */; };
-		DD582214271375EC00560801 /* ActionDisabledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD582213271375EC00560801 /* ActionDisabledTextField.swift */; };
+		DD582214271375EC00560801 /* PasteDisabledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD582213271375EC00560801 /* PasteDisabledTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +40,10 @@
 		DD41610F2711E94E007A427F /* UIColor+ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ThemeColor.swift"; sourceTree = "<group>"; };
 		DD4161132711F10D007A427F /* UILabel+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Builder.swift"; sourceTree = "<group>"; };
 		DD4161182711FB4D007A427F /* WaterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterManager.swift; sourceTree = "<group>"; };
-		DD41611B2711FED8007A427F /* UIDate+IsToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDate+IsToday.swift"; sourceTree = "<group>"; };
-		DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IsaoTextfield+Maker.swift"; sourceTree = "<group>"; };
+		DD41611B2711FED8007A427F /* Date+IsToday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+IsToday.swift"; sourceTree = "<group>"; };
+		DD58144B2712DAB20033026C /* IsaoTextfield+CustomInit,DisablePaste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IsaoTextfield+CustomInit,DisablePaste.swift"; sourceTree = "<group>"; };
 		DD58144F271328910033026C /* String+IsNotEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+IsNotEmpty.swift"; sourceTree = "<group>"; };
-		DD582213271375EC00560801 /* ActionDisabledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionDisabledTextField.swift; sourceTree = "<group>"; };
+		DD582213271375EC00560801 /* PasteDisabledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteDisabledTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,8 @@
 			children = (
 				DD41610F2711E94E007A427F /* UIColor+ThemeColor.swift */,
 				DD4161132711F10D007A427F /* UILabel+Builder.swift */,
-				DD41611B2711FED8007A427F /* UIDate+IsToday.swift */,
-				DD58144B2712DAB20033026C /* IsaoTextfield+Maker.swift */,
+				DD41611B2711FED8007A427F /* Date+IsToday.swift */,
+				DD58144B2712DAB20033026C /* IsaoTextfield+CustomInit,DisablePaste.swift */,
 				DD58144F271328910033026C /* String+IsNotEmpty.swift */,
 			);
 			path = Extension;
@@ -141,7 +141,7 @@
 		DD582215271379BA00560801 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				DD582213271375EC00560801 /* ActionDisabledTextField.swift */,
+				DD582213271375EC00560801 /* PasteDisabledTextField.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -226,8 +226,8 @@
 			files = (
 				DD4161142711F10D007A427F /* UILabel+Builder.swift in Sources */,
 				DD581450271328910033026C /* String+IsNotEmpty.swift in Sources */,
-				DD41611C2711FED8007A427F /* UIDate+IsToday.swift in Sources */,
-				DD58144C2712DAB20033026C /* IsaoTextfield+Maker.swift in Sources */,
+				DD41611C2711FED8007A427F /* Date+IsToday.swift in Sources */,
+				DD58144C2712DAB20033026C /* IsaoTextfield+CustomInit,DisablePaste.swift in Sources */,
 				DD4161072711DC4E007A427F /* MainNavigationController.swift in Sources */,
 				DD4161032711DBE4007A427F /* DrinkWaterViewController.swift in Sources */,
 				DD4160EF2711DBBD007A427F /* AppDelegate.swift in Sources */,
@@ -235,7 +235,7 @@
 				DD4161102711E94E007A427F /* UIColor+ThemeColor.swift in Sources */,
 				DD4161052711DBF9007A427F /* ProfileViewController.swift in Sources */,
 				DD4160F12711DBBD007A427F /* SceneDelegate.swift in Sources */,
-				DD582214271375EC00560801 /* ActionDisabledTextField.swift in Sources */,
+				DD582214271375EC00560801 /* PasteDisabledTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

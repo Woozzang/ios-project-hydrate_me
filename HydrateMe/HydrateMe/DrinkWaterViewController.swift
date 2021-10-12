@@ -35,9 +35,9 @@ final class DrinkWaterViewController: UIViewController {
     return imageView
   }()
   
-  private let waterInputTextFiled: ActionDisabledTextField = {
+  private let waterInputTextField: PasteDisabledTextField = {
     
-    let textField = ActionDisabledTextField()
+    let textField = PasteDisabledTextField()
     
     textField.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
     textField.textColor = .white
@@ -59,7 +59,6 @@ final class DrinkWaterViewController: UIViewController {
     
     let button = UIButton()
     
-//    button.tintColor = .black
     button.setTitle("물마시기💧", for: .normal)
     button.setTitle("🥳 목표 달성 완료 🥳", for: .disabled)
     button.setTitleColor(.black, for: .normal)
@@ -77,20 +76,39 @@ final class DrinkWaterViewController: UIViewController {
     
     title = "물 마시기"
     
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(keyboardWillShow),
+                                           name: UIResponder.keyboardWillShowNotification,
+                                           object: nil)
     
-    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(keyboardWillHide),
+                                           name: UIResponder.keyboardWillHideNotification,
+                                           object: nil)
     
-    NotificationCenter.default.addObserver(self, selector: #selector(userIntakeDidChange), name: WaterManager.waterVolumeDidChange, object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(userIntakeDidChange),
+                                           name: WaterManager.waterVolumeDidChange,
+                                           object: nil)
     
-    NotificationCenter.default.addObserver(self, selector: #selector(recommendedIntakeDidChange), name: WaterManager.recommendedIntakeDidChange, object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(recommendedIntakeDidChange),
+                                           name: WaterManager.recommendedIntakeDidChange,
+                                           object: nil)
     
-    NotificationCenter.default.addObserver(self, selector: #selector(nickNameDidChange), name: WaterManager.nickNameDidChange, object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(nickNameDidChange),
+                                           name: WaterManager.nickNameDidChange,
+                                           object: nil)
     
-    NotificationCenter.default.addObserver(self, selector: #selector(sceneWillEnterForeground), name: UIScene.willEnterForegroundNotification, object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(sceneWillEnterForeground),
+                                           name: UIScene.willEnterForegroundNotification,
+                                           object: nil)
   }
   
   required init?(coder: NSCoder) {
+    
     fatalError("init(coder:) has not been implemented")
   }
   
@@ -200,11 +218,11 @@ final class DrinkWaterViewController: UIViewController {
   
   private func setUpWaterInputTextField() {
     
-    view.addSubview(waterInputTextFiled)
+    view.addSubview(waterInputTextField)
     
-    waterInputTextFiled.delegate = self
+    waterInputTextField.delegate = self
     
-    waterInputTextFiled.snp.makeConstraints { make in
+    waterInputTextField.snp.makeConstraints { make in
       
       make.top.equalTo(mainImageView.snp.bottom).offset(50)
       make.centerX.equalTo(view)
@@ -255,7 +273,7 @@ final class DrinkWaterViewController: UIViewController {
   
   @objc private func didTapDrinkWaterButton() {
     
-    guard let text = waterInputTextFiled.text, text.isNotEmpty else {
+    guard let text = waterInputTextField.text, text.isNotEmpty else {
       
       let alert = UIAlertController(title: "물 없음", message: "입력한 값을 확인해주세요🤔", preferredStyle: .alert)
       
@@ -268,15 +286,16 @@ final class DrinkWaterViewController: UIViewController {
       return
     }
     
-    waterInputTextFiled.text = nil
+    waterInputTextField.text = nil
     
     if WaterManager.shared.recommendedIntake == 0 {
       
       let alert = UIAlertController(title: "❌ 사용자 정보 없음 ❌", message: "사용자 정보를 먼저 입력해주세요😅", preferredStyle: .alert)
       
-      let okAction = UIAlertAction(title: "확인", style: .default, handler: { _ in
+      let okAction = UIAlertAction(title: "확인", style: .default) { _ in
+        
         self.navigationController?.pushViewController(ProfileViewController(), animated: true)
-      })
+      }
       
       alert.addAction(okAction)
       
@@ -393,7 +412,7 @@ extension DrinkWaterViewController {
     updateWaterCountLabel()
     updateAchievementRateLabel()
     updateMainImage()
-    updateToAchievement()
+    updateOnAchievement()
   }
   
   @objc func recommendedIntakeDidChange() {
@@ -401,7 +420,7 @@ extension DrinkWaterViewController {
     updateAchievementRateLabel()
     updateMainImage()
     updateGuideLabel()
-    updateToAchievement()
+    updateOnAchievement()
   }
   
   @objc func nickNameDidChange() {
@@ -472,7 +491,7 @@ extension DrinkWaterViewController {
     목표 달성 시 분기 처리하는 메서드
    */
   
-  private func updateToAchievement() {
+  private func updateOnAchievement() {
     
     let achievementRate = WaterManager.shared.achievementRate
     
@@ -480,13 +499,17 @@ extension DrinkWaterViewController {
       
       drinkWaterButton.isEnabled = false
       drinkWaterButton.backgroundColor = #colorLiteral(red: 0.8039215686, green: 0.8980392157, blue: 0.7764705882, alpha: 1)
-      waterInputTextFiled.isEnabled = false
+      waterInputTextField.isEnabled = false
+      
+      waterInputTextField.placeholder = "오늘은 충분해요"
       
     } else {
       
       drinkWaterButton.isEnabled = true
       drinkWaterButton.backgroundColor = .white
-      waterInputTextFiled.isEnabled = true
+      waterInputTextField.isEnabled = true
+      
+      waterInputTextField.placeholder = "마실 물 양을 입력해주세요"
     }
   }
   
@@ -514,3 +537,4 @@ extension DrinkWaterViewController {
     achievementRateLabel.text = "목표의 \(resultText)%"
   }
 }
+

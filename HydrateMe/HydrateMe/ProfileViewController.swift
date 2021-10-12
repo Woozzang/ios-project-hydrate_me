@@ -135,7 +135,7 @@ final class ProfileViewController: UIViewController {
       
       // TODO: 알림창
       let alert = UIAlertController(title: "잠시만요...🤔",
-                                    message: "설정하지 않은 항목이 있는 것 같아요.",
+                                    message: "올바르게 설정하지 않은 항목이 있는 것 같아요.",
                                     preferredStyle: .alert)
       
       let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
