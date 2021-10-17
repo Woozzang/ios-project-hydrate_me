@@ -12,6 +12,8 @@ final class DrinkWaterViewController: UIViewController {
   
   // MARK: - Property
   
+  private var notificationCenter: NotificationCenter
+  
   private let baselabel = {
     return UILabel().text("잘하셨어요!\n오늘 마신 양은")
       .font(.systemFont(ofSize: 25))
@@ -71,40 +73,15 @@ final class DrinkWaterViewController: UIViewController {
   
   // MARK: - Life Cycle
   
-  init() {
+  internal init(notificationCenter center: NotificationCenter = NotificationCenter.default) {
+    
+    self.notificationCenter = center
+    
     super.init(nibName: nil, bundle: nil)
     
     title = "물 마시기"
     
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(keyboardWillShow),
-                                           name: UIResponder.keyboardWillShowNotification,
-                                           object: nil)
-    
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(keyboardWillHide),
-                                           name: UIResponder.keyboardWillHideNotification,
-                                           object: nil)
-    
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(userIntakeDidChange),
-                                           name: WaterManager.waterVolumeDidChange,
-                                           object: nil)
-    
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(recommendedIntakeDidChange),
-                                           name: WaterManager.recommendedIntakeDidChange,
-                                           object: nil)
-    
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(nickNameDidChange),
-                                           name: WaterManager.nickNameDidChange,
-                                           object: nil)
-    
-    NotificationCenter.default.addObserver(self,
-                                           selector: #selector(sceneWillEnterForeground),
-                                           name: UIScene.willEnterForegroundNotification,
-                                           object: nil)
+    addNotificationObservers()
   }
   
   required init?(coder: NSCoder) {
@@ -160,6 +137,39 @@ final class DrinkWaterViewController: UIViewController {
   }
   
   // MARK: - AutoLayout
+  
+  private func addNotificationObservers() {
+    
+    notificationCenter.addObserver(self,
+                                           selector: #selector(keyboardWillShow),
+                                           name: UIResponder.keyboardWillShowNotification,
+                                           object: nil)
+    
+    notificationCenter.addObserver(self,
+                                           selector: #selector(keyboardWillHide),
+                                           name: UIResponder.keyboardWillHideNotification,
+                                           object: nil)
+    
+    notificationCenter.addObserver(self,
+                                           selector: #selector(userIntakeDidChange),
+                                           name: WaterManager.waterVolumeDidChange,
+                                           object: nil)
+    
+    notificationCenter.addObserver(self,
+                                           selector: #selector(recommendedIntakeDidChange),
+                                           name: WaterManager.recommendedIntakeDidChange,
+                                           object: nil)
+    
+    notificationCenter.addObserver(self,
+                                           selector: #selector(nickNameDidChange),
+                                           name: WaterManager.nickNameDidChange,
+                                           object: nil)
+    
+    notificationCenter.addObserver(self,
+                                           selector: #selector(sceneWillEnterForeground),
+                                           name: UIScene.willEnterForegroundNotification,
+                                           object: nil)
+  }
   
   private func setUpRootView() {
     
